@@ -10,6 +10,8 @@ var cur_item:int = 0:
 	set(v):
 		cur_item = wrapi(v,0,freeplay_list.size())
 var cur_diff_str:String = "hard"
+@onready var score: Label = $ui/PanelContainer/VBoxContainer/score
+
 @onready var diff_label: Label = $ui/PanelContainer/VBoxContainer/diff
 @onready var rate_label: Label = $ui/PanelContainer/VBoxContainer/rate
 static var rate:float = 1.0
@@ -51,8 +53,18 @@ func _ready() -> void:
 	pass # Replace with function body.
 var song_loaded:bool = false
 var song_loading:bool = false
+var song_score:int = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var song_name = freeplay_list[cur_item].song_name
+	var song_diffs = freeplay_list[cur_item].difficultys
+	var song_diff = song_diffs[cur_diff]
+	var true_score = HighScore.get_score(song_name,song_diff)[0]
+	song_score = lerp(true_score,song_score,exp(-delta*24))
+	# dumb fix
+	if abs(song_score - true_score) <= 100:
+		song_score = true_score
+	score.text = "score: %d"%song_score
 	if song_loaded:
 		SceneManager.switch_scene("res://scenes/gmae.tscn")
 		Conductor.rate = cur_rate
@@ -96,8 +108,8 @@ func change_item(i:int):
 		cur_diff = diffs.find(cur_diff_str)
 	change_diff(0)
 func load_song(song_name:String):
-	Game.meta = Game.load_meta(song_name)
-	Game.chart = Chart.load_chart(song_name,freeplay_list[cur_item].difficultys[cur_diff],Game.meta.format)
+	Game.song_name = song_name
+	Game.song_diff = freeplay_list[cur_item].difficultys[cur_diff]
 	SceneManager.switch_scene("res://scenes/gmae.tscn")
 	
 	song_loaded = true

@@ -5,17 +5,42 @@ var note_data:Array[NoteData] = []:
 		note_data = note_data.filter(func(a): if a.player%Game.meta.players.size() == self.player.id: return a)
 		note_data.sort_custom(func(a,b): return a.time < b.time)
 var notes:Node2D = Node2D.new()
+var splashe_group:Node2D = Node2D.new()
+var splashs:Array[AnimatedSprite2D] = []
+func im_splashing_it(splash_index:int):
+	var splash = splashs[splash_index]
+	splash.visible = true
+	splash.frame = 0
+	splash.play("note splash %s"%[Strum.column_to_str(splash_index)])
+	await splash.animation_finished
+	splash.visible = false
+	
 @export var player:Player = null
 var strums:Node2D
 var temp_note = load("res://scenes/notes/normal.tscn")
 var strumline:PackedScene = null
 # Called when the node enters the scene tree for the first time.
+func init_splashes():
+	for i in player.keycount:
+		var skin = Game.instance.hud.skin
+		var splash:AnimatedSprite2D = AnimatedSprite2D.new()
+		splash.sprite_frames = skin.noteskin_splash_frames
+		splash.scale = Vector2(skin.noteskin_splash_scale,skin.noteskin_splash_scale)
+		splashe_group.add_child(splash)
+		splash.global_position = strums.get_child(i).global_position
+		splashs.append(splash)
+		splash.visible = false
+		
+		
 func _ready():
 	if SaveMan.get_data("downscroll",false):
 		position.y = 720 - position.y
 #region gen_strums
 	add_child(strums)
 	add_child(notes)
+	add_child(splashe_group)
+	init_splashes()
+	
 #endregion
 
 var note_index:int = 0

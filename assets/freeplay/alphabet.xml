@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="alphabet.png">
 	<!-- Created with Adobe Animate version 23.0.2.103 -->
 	<!-- http://www.adobe.com/products/animate.html -->
@@ -26,14 +26,14 @@
 	<SubTexture name="% normal instance 10001" x="80" y="395" width="46" height="52"/>
 	<SubTexture name="% normal instance 10002" x="387" y="409" width="46" height="52"/>
 	<SubTexture name="% normal instance 10003" x="387" y="409" width="46" height="52"/>
-	<SubTexture name="& bold instance 10000" x="930" y="218" width="47" height="70"/>
-	<SubTexture name="& bold instance 10001" x="930" y="218" width="47" height="70"/>
-	<SubTexture name="& bold instance 10002" x="1572" y="221" width="47" height="70"/>
-	<SubTexture name="& bold instance 10003" x="1572" y="221" width="47" height="70"/>
-	<SubTexture name="& normal instance 10000" x="0" y="478" width="36" height="58"/>
-	<SubTexture name="& normal instance 10001" x="0" y="478" width="36" height="58"/>
-	<SubTexture name="& normal instance 10002" x="1249" y="478" width="36" height="58"/>
-	<SubTexture name="& normal instance 10003" x="1249" y="478" width="36" height="58"/>
+	<SubTexture name="and bold instance 10000" x="930" y="218" width="47" height="70"/>
+	<SubTexture name="and bold instance 10001" x="930" y="218" width="47" height="70"/>
+	<SubTexture name="and bold instance 10002" x="1572" y="221" width="47" height="70"/>
+	<SubTexture name="and bold instance 10003" x="1572" y="221" width="47" height="70"/>
+	<SubTexture name="and normal instance 10000" x="0" y="478" width="36" height="58"/>
+	<SubTexture name="and normal instance 10001" x="0" y="478" width="36" height="58"/>
+	<SubTexture name="and normal instance 10002" x="1249" y="478" width="36" height="58"/>
+	<SubTexture name="and normal instance 10003" x="1249" y="478" width="36" height="58"/>
 	<SubTexture name="( bold instance 10000" x="1177" y="156" width="38" height="76"/>
 	<SubTexture name="( bold instance 10001" x="1177" y="156" width="38" height="76"/>
 	<SubTexture name="( bold instance 10002" x="775" y="299" width="38" height="75" frameX="0" frameY="-1" frameWidth="38" frameHeight="76"/>

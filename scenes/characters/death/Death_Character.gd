@@ -29,12 +29,12 @@ func _input(event: InputEvent) -> void:
 	if retrying:
 		return
 	if event.is_action_pressed("ui_accept"):
-		get_tree().change_scene_to_file("res://scenes/gmae.tscn")
 		retrying = true
 		anim_player.play("retry")
 		retry.play()
 		music.stop()
 		var t = create_tween().tween_property(sprite,"modulate:a",0,2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC).set_delay(0.7)
 		await t.finished
+		get_tree().change_scene_to_file("res://scenes/gmae.tscn")
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")

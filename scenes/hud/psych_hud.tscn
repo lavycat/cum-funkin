@@ -75,26 +75,26 @@ label_settings = SubResource("LabelSettings_0orxd")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="healthbar" type="ProgressBar" parent="."]
+[node name="healthbarBG" type="TextureRect" parent="."]
+show_behind_parent = true
 layout_mode = 0
-offset_left = 362.0
-offset_top = 641.0
-offset_right = 957.0
-offset_bottom = 654.0
+offset_left = 357.0
+offset_top = 637.0
+offset_right = 958.0
+offset_bottom = 656.0
+texture = ExtResource("2_0orxd")
+
+[node name="healthbar" type="ProgressBar" parent="healthbarBG"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 596.0
+offset_bottom = 15.0
 theme_override_styles/background = SubResource("StyleBoxFlat_0orxd")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ndh5p")
 max_value = 2.0
 value = 1.0
 show_percentage = false
-
-[node name="healthbarBG" type="TextureRect" parent="healthbar"]
-show_behind_parent = true
-layout_mode = 0
-offset_left = -5.0
-offset_top = -4.0
-offset_right = 600.0
-offset_bottom = 17.0
-texture = ExtResource("2_0orxd")
 
 [node name="iconp2" type="Sprite2D" parent="."]
 position = Vector2(607.5, 642)

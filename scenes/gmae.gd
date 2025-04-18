@@ -8,6 +8,9 @@ static var instance:Game = null
 @onready var event_manager: EventHandler = %event_manager
 @onready var hud: BaseHud = $"UI Layer/HUD"
 var song_player:AudioStreamPlayer = null ## is set on play music shit
+static var song_name:String = "dad-battle"
+static var song_diff:String = "hard"
+
 var stage:Stage = null
 var song_script_objs:Array[Object] = []
 var player_list:Array[Player] = []
@@ -36,18 +39,17 @@ static func load_meta(song_name:String) -> ChartMeta:
 	else:
 		return ChartMeta.new()
 		
-func _init() -> void:
+func _enter_tree() -> void:
+	meta = load_meta(song_name)
+	chart = Chart.load_chart(song_name,song_diff)
 	for i:Script in meta.song_scripts:
 		var obj = i.new()
 		song_script_objs.append(obj)
-	if meta == null:
-		meta = load_meta("silly-billy")
-	if chart == null:
-		chart = Chart.load_chart("silly-billy", "normal")
-	
 func _ready():
 	instance = self
 	Conductor.reset()
+	
+	
 	#region music shits
 	var player:AudioStreamPlayer = AudioStreamPlayer.new()
 	player.stream = AudioStreamSynchronized.new()
@@ -151,6 +153,8 @@ func _ready():
 #endregion
 
 	ui_layer.add_child(hud)
+	meta = null
+	
 #region song scripts shits
 	for obj:Object in song_script_objs:
 		if obj is Node:
@@ -161,6 +165,8 @@ var cur_event:int = 0
 var song_time:float
 var died:bool = false
 func die():
+	if died:
+		return
 	player_list[1].stats.health = 0.0
 func _process(delta):
 	stage.camera.zoom = lerp(stage.camera.zoom,Vector2(stage.zoom,stage.zoom),5*delta)
@@ -176,7 +182,9 @@ func _process(delta):
 			stage.camera.position = death_char.camera_position.global_position
 			song_player.stop()
 			Conductor.audio = death_char.music
-			create_tween().tween_property(hud,"modulate:a",0,0.7).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_IN)
+			create_tween().tween_property(hud,"modulate:a",0,0.7).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN_OUT)
+			for i in player_list:
+				i.queue_free()
 	song_time = Conductor.audio.get_playback_position()
 	#if Conductor.last_time == song_time or not song_started:
 		#Conductor.time += delta
@@ -191,6 +199,8 @@ func end_song():
 	## unload cus erm sigma
 	chart = null
 	meta = null
+	var stats = hud.stats
+	HighScore.add_score(song_name,song_diff,[stats.score,stats.combo_breaks,stats.accuracy])
 	match play_mode:
 		PlayMode.FREEPLAY:
 			SceneManager.switch_scene("res://scenes/menus/main_menu.tscn")

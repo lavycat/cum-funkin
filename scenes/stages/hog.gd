@@ -35,18 +35,18 @@ func step(s):
 func change_bg():
 	new_loops = Sprite2D.new()
 	overlay.visible = false
-	trees.texture = preload("res://assets/stages/hog/hog 2/Plants.png")
+	trees.texture = load("res://assets/stages/hog/hog 2/Plants.png")
 	trees.position.x += 200
 	trees.position.y += 60
-	mount_hog.texture = preload("res://assets/stages/hog/hog 2/Mountains.png")
-	floor_spr.texture = preload("res://assets/stages/hog/hog 2/Floor.png")
+	mount_hog.texture = load("res://assets/stages/hog/hog 2/Mountains.png")
+	floor_spr.texture = load("res://assets/stages/hog/hog 2/Floor.png")
 	floor_spr.position -= Vector2(-200, -30)
-	rocks.texture = preload("res://assets/stages/hog/hog 2/Rocks.png")
-	bg.texture = preload("res://assets/stages/hog/hog 2/Sunset.png")
+	rocks.texture = load("res://assets/stages/hog/hog 2/Rocks.png")
+	bg.texture = load("res://assets/stages/hog/hog 2/Sunset.png")
 	bg.position.y += 300.0
-	water.sprite_frames = preload("res://assets/stages/hog/hog 2/Waterfalls.res")
+	water.sprite_frames = load("res://assets/stages/hog/hog 2/Waterfalls.res")
 	water.play("British instance 1")
-	new_loops.texture = preload("res://assets/stages/hog/hog 2/Hills.png")
+	new_loops.texture = load("res://assets/stages/hog/hog 2/Hills.png")
 	new_loops.position = Vector2(0, 230)
 	new_loops.centered = false
 	loops.add_sibling(new_loops)
@@ -65,4 +65,4 @@ func beathit(beat:int):
 	
 func cpu_note_hit(player:Player,note:Note):
 	if note.sustain_ticking and do_glitch:
-		glitchamount += 0.06 * (1.0 + note.og_sustain_length*Conductor.step_crochet)
+		glitchamount += 0.04 * (1.0 + note.og_sustain_length*Conductor.step_crochet)

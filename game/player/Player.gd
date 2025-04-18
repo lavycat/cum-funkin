@@ -112,12 +112,11 @@ func note_miss(note:Note):
 	if Game.instance.hud:
 		Game.instance.hud.on_note_miss(self,note)
 	print("missed a note")
-	pass
-	
 func note_hit(note:Note,cheat:bool = false):
 	var strum:Strum = note.notefield.strums.get_child(note.column)
 	
 	if not note.sustain_ticking:
+		
 		var rating:NoteRating = NoteRating.rate_note(note,autoplay or cheat)
 		if rating.rating != "invalid":
 			stats.ratings[rating.rating] += 1
@@ -129,6 +128,7 @@ func note_hit(note:Note,cheat:bool = false):
 		match rating.rating.to_lower():
 			"sick","marvelous":
 				stats.accuracy_points += 1.0
+				notefield.im_splashing_it(note.column)
 			"good":
 				stats.accuracy_points += 0.67
 			"bad":

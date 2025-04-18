@@ -1,20 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cldmxm7mafjaw"]
+[gd_scene load_steps=4 format=3 uid="uid://cldmxm7mafjaw"]
 
 [ext_resource type="Script" uid="uid://xn4yurjayiv4" path="res://scenes/autoload/FPS.gd" id="1_ndocp"]
+
+[sub_resource type="SystemFont" id="SystemFont_gfxcn"]
+font_names = PackedStringArray("Sans-Serif")
+
+[sub_resource type="LabelSettings" id="LabelSettings_co24l"]
+font = SubResource("SystemFont_gfxcn")
 
 [node name="Fps" type="CanvasLayer"]
 process_mode = 3
 layer = 128
+offset = Vector2(16, 4)
+transform = Transform2D(1, 0, 0, 1, 16, 4)
 script = ExtResource("1_ndocp")
 
-[node name="Label" type="RichTextLabel" parent="."]
-offset_left = 8.0
-offset_top = 3.0
-offset_right = 40.0
-offset_bottom = 26.0
-mouse_filter = 2
-bbcode_enabled = true
-text = "FPS:"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
+[node name="Label" type="Label" parent="."]
+offset_right = 112.0
+offset_bottom = 49.0
+text = "FPS: 60
+Memory: 0 MB"
+label_settings = SubResource("LabelSettings_co24l")

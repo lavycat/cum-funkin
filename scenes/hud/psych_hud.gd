@@ -3,7 +3,9 @@ extends BaseHud
 @onready var time_txt: Label = $text
 
 @onready var timebar: ProgressBar = $timebar
-@onready var healthbar: ProgressBar = $healthbar
+@onready var healthbar_bg: TextureRect = $healthbarBG
+@onready var healthbar: ProgressBar = $healthbarBG/healthbar
+
 @onready var icon_p1: Sprite2D = $iconp1
 @onready var icon_p2: Sprite2D = $iconp2
 @onready var score_txt: Label = $score_txt
@@ -23,20 +25,22 @@ func _ready() -> void:
 	timebar.modulate.a = 0
 	time_txt.modulate.a = 0
 	Game.instance.add_child(rating_group)
-	healthbar.position.x = size.x / 2 - healthbar.size.x/2
+	healthbar_bg.position.x = size.x / 2 - healthbar.size.x/2
 	print(Game.instance.player_field)
 	if SaveMan.save.downscroll:
 		time_txt.position.y = size.y - 44
-		healthbar.position.y = size.y*0.11
-		icon_p1.position.y = healthbar.position.y
-		icon_p2.position.y = healthbar.position.y
+		healthbar_bg.position.y = size.y*0.11
+		icon_p1.position.y = healthbar_bg.position.y
+		icon_p2.position.y = healthbar_bg.position.y
+		
 	
 		
 	timebar.position.y = time_txt.position.y + time_txt.size.y/4
 	timebar.position.x = size.x / 2 - timebar.size.x/2
 	time_txt.position.x = size.x / 2 - time_txt.size.x/2
-	score_txt.position.y = healthbar.position.y + 40
+	score_txt.position.y = healthbar_bg.position.y + 40
 	Conductor.beat_hit.connect(_on_beat_hit)
+	reload_icon_textures()
 func update_score_text():
 	if stats.ratings.good == 0 and stats.ratings.bad == 0 and stats.ratings.shit == 0 and stats.combo_breaks == 0:
 			rating_name = "Perfect!!"
@@ -58,7 +62,7 @@ func update_score_text():
 		rating_name = "Shit"
 	if stats.accuracy < 0.2:
 		rating_name = "You Suck!"
-	var rating_text = "%s (%.3f) - %s" %[rating_name,stats.accuracy*100.0,rating_fc]
+	var rating_text = "%s (%.3f%%) - %s" %[rating_name,stats.accuracy*100.0,rating_fc]
 	
 	score_txt.text = "Score: %d | Misses: %d | Rating: %s" %[stats.score,stats.combo_breaks,rating_text]
 	pass
@@ -77,7 +81,7 @@ func _process(delta: float) -> void:
 	timebar.value = Conductor.time
 	time_txt.text = format_time(Conductor.time)
 	# icon shit
-	bar_center = healthbar.position.x + (healthbar.value / healthbar.max_value)*healthbar.size.x
+	bar_center = healthbar_bg.position.x + 6 + (healthbar.value / healthbar.max_value)*healthbar.size.x
 	const icon_offset = 26
 	
 	icon_p1.position.x = bar_center + (150 * icon_p1.scale.x - 150) / 2 - icon_offset + 75

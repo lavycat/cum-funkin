@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cucean7yot0pw"
-path.bptc="res://.godot/imported/nums.png-bce29922f3b0419aa573552edebfc605.bptc.ctex"
+path="res://.godot/imported/nums.png-bce29922f3b0419aa573552edebfc605.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/ratings/nums.png"
-dest_files=["res://.godot/imported/nums.png-bce29922f3b0419aa573552edebfc605.bptc.ctex"]
+dest_files=["res://.godot/imported/nums.png-bce29922f3b0419aa573552edebfc605.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

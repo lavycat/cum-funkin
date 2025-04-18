@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deo45b44s0wxl"
-path="res://.godot/imported/sick.png-471ea2bd2c4781075bcc062d8e60774b.ctex"
+uid="uid://dlkf1w0i4tamg"
+path="res://.godot/imported/noteSplashes.png-f2bf1a84c8c61c7b46e8a7bead1d7ffc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ratings/sick.png"
-dest_files=["res://.godot/imported/sick.png-471ea2bd2c4781075bcc062d8e60774b.ctex"]
+source_file="res://assets/note_splashes/nmv/noteSplashes.png"
+dest_files=["res://.godot/imported/noteSplashes.png-f2bf1a84c8c61c7b46e8a7bead1d7ffc.ctex"]
 
 [params]
 
 compress/mode=0
-compress/high_quality=true
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

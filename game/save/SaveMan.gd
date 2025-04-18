@@ -1,6 +1,6 @@
 extends Node
 var save:SaveDat = SaveDat.new()
-const SETTINGS_PATH:String = "res://save.tres"
+const SETTINGS_PATH:String = "user://save.tres"
 func _ready():
 	save = load_data()
 	save_data()

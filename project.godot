@@ -30,6 +30,7 @@ Conductor="*res://game/Conductor.gd"
 Fps="*res://scenes/autoload/FPS.tscn"
 SceneManager="*res://autoload/scene_manager.tscn"
 AudioManager="*res://scenes/autoload/audio_manager.tscn"
+HighScore="*res://game/save/high_score.gd"
 
 [display]
 
@@ -42,6 +43,10 @@ window/vsync/vsync_mode=0
 [dotnet]
 
 project/assembly_name="cum funkin"
+
+[gui]
+
+common/snap_controls_to_pixels=false
 
 [input]
 
@@ -104,6 +109,5 @@ fullscreen={
 
 gl_compatibility/force_angle_on_devices=[]
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
 viewport/hdr_2d=true
-2d/snap/snap_2d_transforms_to_pixel=true
-2d/snap/snap_2d_vertices_to_pixel=true

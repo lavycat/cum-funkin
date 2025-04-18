@@ -5,8 +5,8 @@ extends Node
 #var dumb3:SpriteFrames = preload("res://assets/characters/hog/scorched.res")
 # Called when the node enters the scene tree for the first time.
 
-@onready var scorched = preload("res://scenes/characters/scorched.tscn")
-@onready var scorched_glitch = preload("res://scenes/characters/scorched_glitch.tscn")
+@onready var scorched = load("res://scenes/characters/scorched.tscn")
+@onready var scorched_glitch = load("res://scenes/characters/scorched_glitch.tscn")
 
 func _ready() -> void:
 	name = "events"
@@ -43,7 +43,6 @@ func step(_step:int) -> void:
 		game.stage.add_child(newchar)
 		
 		var cpu_player:Player = game.player_list[0] as Player
-		game.meta.cpu_character = scorched_glitch
 		
 		for i in cpu_player.chars:
 			i.queue_free()

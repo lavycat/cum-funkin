@@ -1,15 +1,16 @@
-[gd_resource type="Resource" script_class="UISkin" load_steps=11 format=3 uid="uid://cp2wsuaqmxne7"]
+[gd_resource type="Resource" script_class="UISkin" load_steps=12 format=3 uid="uid://cp2wsuaqmxne7"]
 
 [ext_resource type="Texture2D" uid="uid://cnejolpq8ujhe" path="res://assets/ratings/bad.png" id="1_ln20y"]
 [ext_resource type="Texture2D" uid="uid://1t2eeg6wh0en" path="res://assets/ratings/good.png" id="2_b82s8"]
 [ext_resource type="Texture2D" uid="uid://cucean7yot0pw" path="res://assets/ratings/nums.png" id="2_dx1w3"]
-[ext_resource type="Texture2D" uid="uid://bb6b0f34kr1mc" path="res://assets/ratings/Epic.png" id="3_fbfgp"]
 [ext_resource type="Script" uid="uid://k5smrgk0vf4n" path="res://game/UISkin.gd" id="4_mnqcg"]
+[ext_resource type="Texture2D" uid="uid://df7jb1jefinw4" path="res://assets/ratings/nmv/epic.png" id="4_p17ep"]
 [ext_resource type="SpriteFrames" uid="uid://s3jieq3t6mn2" path="res://assets/notes.res" id="4_soqfg"]
 [ext_resource type="Texture2D" uid="uid://cuf3xcpnm8ujr" path="res://assets/sustain.png" id="5_2fpbq"]
 [ext_resource type="Texture2D" uid="uid://3tmqlw8ys1du" path="res://assets/ratings/shit.png" id="5_l0w2c"]
 [ext_resource type="Texture2D" uid="uid://bxms331wos77t" path="res://assets/tail.png" id="6_dx1w3"]
 [ext_resource type="Texture2D" uid="uid://deo45b44s0wxl" path="res://assets/ratings/sick.png" id="6_v24jq"]
+[ext_resource type="SpriteFrames" uid="uid://cwvc07hq8ym4s" path="res://assets/note_splashes/nmv/noteSplashes.res" id="7_p17ep"]
 
 [resource]
 script = ExtResource("4_mnqcg")
@@ -17,9 +18,11 @@ shit_texture = ExtResource("5_l0w2c")
 bad_texture = ExtResource("1_ln20y")
 good_texture = ExtResource("2_b82s8")
 sick_texture = ExtResource("6_v24jq")
-marvelous_texture = ExtResource("3_fbfgp")
+marvelous_texture = ExtResource("4_p17ep")
 combo_texture = ExtResource("2_dx1w3")
 noteskin_scale = 0.7
 noteskin_frames = ExtResource("4_soqfg")
 noteskin_hold_textures = Array[Texture]([ExtResource("5_2fpbq"), ExtResource("5_2fpbq"), ExtResource("5_2fpbq"), ExtResource("5_2fpbq")])
 noteskin_tail_textures = Array[Texture]([ExtResource("6_dx1w3"), ExtResource("6_dx1w3"), ExtResource("6_dx1w3"), ExtResource("6_dx1w3")])
+noteskin_splash_scale = 1.0
+noteskin_splash_frames = ExtResource("7_p17ep")
