@@ -61,6 +61,7 @@ func change_option_value_directional(mult:int = 1):
 			SaveMan.set_data(cur_selected_data.option_name, wrap(original_data + (cur_selected_data.option_number_range.step*mult), cur_selected_data.option_number_range.minimum, cur_selected_data.option_number_range.maximum))
 			cur_selected_object.get_child(1).text = str(SaveMan.get_data(cur_selected_data.option_name))
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+var sneako_timer:float = 0 # incel timer
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed('ui_up'):
 		cur_selected -= 1
@@ -77,6 +78,12 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_pressed('ui_right'):
 		change_option_value_directional(1 * shiftMult)
 		AudioManager.play_sfx(AudioManager.MENU_SCROLL)
+	if Input.get_axis('ui_left', 'ui_right') != 0:
+		sneako_timer += delta
+		if (sneako_timer >= 0.5):
+			change_option_value_directional(Input.get_axis('ui_left', 'ui_right') * shiftMult)
+	else:
+		sneako_timer = 0
 		
 	if Input.is_action_just_pressed('ui_accept'):
 		change_option_value_enterical()
