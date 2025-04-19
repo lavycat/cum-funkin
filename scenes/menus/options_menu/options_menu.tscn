@@ -1,142 +1,155 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8235xq70y2ii"]
+[gd_scene load_steps=17 format=3 uid="uid://b8235xq70y2ii"]
 
 [ext_resource type="Texture2D" uid="uid://b1fbwmd82v8tb" path="res://assets/main_menu/menuDesat.png" id="1_ts4b0"]
 [ext_resource type="Script" uid="uid://r261croh276o" path="res://scenes/menus/options_menu/options_menu.gd" id="1_vd6yg"]
-[ext_resource type="Script" uid="uid://bfhfdq0u1squ5" path="res://scenes/menus/options_menu/scripts/options_checkbox.gd" id="3_rh5dl"]
-[ext_resource type="Script" uid="uid://dv3ui6io4blmm" path="res://scenes/menus/options_menu/scripts/options_spinbox.gd" id="4_h83eq"]
+[ext_resource type="Script" uid="uid://fd6880q4nvmh" path="res://scenes/menus/options_menu/data/option_page.gd" id="2_35m4m"]
+[ext_resource type="Script" uid="uid://bs2diebeu37fr" path="res://scenes/menus/options_menu/data/page_options/page_option.gd" id="3_x0syw"]
+[ext_resource type="Script" uid="uid://cvxp7ykniat5o" path="res://scenes/menus/options_menu/data/page_options/options_range.gd" id="4_x0syw"]
+[ext_resource type="Script" uid="uid://dvqrbbvhpnj5k" path="res://assets/freeplay/Alphabet.gd" id="6_0at57"]
+[ext_resource type="SpriteFrames" uid="uid://bk5hbtun5otpq" path="res://assets/options/checkboxThingie.res" id="9_icgry"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crrhl"]
-bg_color = Color(0, 0, 0, 0.4)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[sub_resource type="Resource" id="Resource_0fxk6"]
+script = ExtResource("4_x0syw")
+minimum = 0.0
+maximum = 1.0
+step = 1.0
+metadata/_custom_type_script = "uid://cvxp7ykniat5o"
+
+[sub_resource type="Resource" id="Resource_0at57"]
+script = ExtResource("3_x0syw")
+option_type = 0
+option_name = &"downscroll"
+option_display_name = &"Downscroll"
+option_number_range = SubResource("Resource_0fxk6")
+option_choices = Array[String]([])
+p = null
+metadata/_custom_type_script = "uid://bs2diebeu37fr"
+
+[sub_resource type="Resource" id="Resource_ohdhi"]
+script = ExtResource("3_x0syw")
+option_type = 0
+option_name = &"center_notefield"
+option_display_name = &"Centered Notefield"
+option_choices = Array[String]([])
+p = null
+metadata/_custom_type_script = "uid://bs2diebeu37fr"
+
+[sub_resource type="Resource" id="Resource_icgry"]
+script = ExtResource("2_35m4m")
+page_name = &"Gameplay"
+page_options = Array[ExtResource("3_x0syw")]([SubResource("Resource_0at57"), SubResource("Resource_ohdhi")])
+metadata/_custom_type_script = "uid://fd6880q4nvmh"
+
+[sub_resource type="Resource" id="Resource_6n8at"]
+script = ExtResource("4_x0syw")
+minimum = 30.0
+maximum = 1000.0
+step = 1.0
+metadata/_custom_type_script = "uid://cvxp7ykniat5o"
+
+[sub_resource type="Resource" id="Resource_woocs"]
+script = ExtResource("3_x0syw")
+option_type = 1
+option_name = &"fps"
+option_display_name = &"Framerate Limit"
+option_number_range = SubResource("Resource_6n8at")
+option_choices = Array[String]([])
+p = null
+metadata/_custom_type_script = "uid://bs2diebeu37fr"
+
+[sub_resource type="Resource" id="Resource_eymh5"]
+script = ExtResource("3_x0syw")
+option_type = 0
+option_name = &"vsync"
+option_display_name = &"V-Sync"
+option_choices = Array[String]([])
+p = null
+metadata/_custom_type_script = "uid://bs2diebeu37fr"
+
+[sub_resource type="Resource" id="Resource_bctyv"]
+script = ExtResource("3_x0syw")
+option_type = 0
+option_name = &"shaders"
+option_display_name = &"Shaders"
+option_choices = Array[String]([])
+p = null
+metadata/_custom_type_script = "uid://bs2diebeu37fr"
+
+[sub_resource type="Resource" id="Resource_t8xl3"]
+script = ExtResource("2_35m4m")
+page_name = &"Graphics"
+page_options = Array[ExtResource("3_x0syw")]([SubResource("Resource_woocs"), SubResource("Resource_eymh5"), SubResource("Resource_bctyv")])
+metadata/_custom_type_script = "uid://fd6880q4nvmh"
 
 [node name="OptionsMenu" type="Node2D"]
 script = ExtResource("1_vd6yg")
+options = Array[ExtResource("2_35m4m")]([SubResource("Resource_icgry"), SubResource("Resource_t8xl3")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-modulate = Color(0.379237, 0.232766, 0.337434, 1)
+modulate = Color(0.969014, 0.505224, 0.649103, 1)
 texture = ExtResource("1_ts4b0")
 centered = false
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="PsychUI" type="CanvasLayer" parent="."]
 
-[node name="pages" type="Control" parent="UI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PsychUI"]
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_constants/separation = 40
+
+[node name="PageTemplate" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_top = -240.0
+offset_right = 1280.0
+offset_bottom = -111.0
 
-[node name="gameplay" type="PanelContainer" parent="UI/pages"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -480.0
-offset_top = -270.0
-offset_right = 480.0
-offset_bottom = 270.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_crrhl")
+[node name="Name" type="Control" parent="PageTemplate"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 425.0
+offset_top = 35.0
+offset_right = 1026.0
+offset_bottom = 103.0
+script = ExtResource("6_0at57")
+text = "Page Template"
+bold = true
+metadata/_custom_type_script = "uid://dvqrbbvhpnj5k"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/pages/gameplay"]
-layout_mode = 2
-alignment = 1
+[node name="OptionTemplate" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 3
+anchors_preset = 0
+offset_top = -80.0
+offset_right = 1280.0
+offset_bottom = -12.0
 
-[node name="numbers" type="HBoxContainer" parent="UI/pages/gameplay/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-alignment = 1
+[node name="Name" type="Control" parent="OptionTemplate"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 256.0
+offset_right = 713.0
+offset_bottom = 68.0
+script = ExtResource("6_0at57")
+text = "Option Template"
+metadata/_custom_type_script = "uid://dvqrbbvhpnj5k"
 
-[node name="fps" type="SpinBox" parent="UI/pages/gameplay/VBoxContainer/numbers"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-tooltip_text = "sets the fps cap, max of 1000 set to 0 for unlimted"
-max_value = 1000.0
-rounded = true
-alignment = 1
-suffix = "FPS"
-custom_arrow_step = 10.0
-script = ExtResource("4_h83eq")
+[node name="ValueText" type="Control" parent="OptionTemplate"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 768.0
+offset_right = 1091.0
+offset_bottom = 68.0
+script = ExtResource("6_0at57")
+text = "Text Value"
+metadata/_custom_type_script = "uid://dvqrbbvhpnj5k"
 
-[node name="scroll speed" type="SpinBox" parent="UI/pages/gameplay/VBoxContainer/numbers"]
-custom_minimum_size = Vector2(170, 0)
-layout_mode = 2
-tooltip_text = "scroll speed, the speed the notes are on the note field, set to 1.0 for chart based speed"
-max_value = 10.0
-step = 0.1
-alignment = 1
-suffix = "scroll speed"
-custom_arrow_step = 0.1
-script = ExtResource("4_h83eq")
-linked_field = "scroll_speed"
-
-[node name="HSeparator" type="HSeparator" parent="UI/pages/gameplay/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="bools" type="HBoxContainer" parent="UI/pages/gameplay/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.0
-alignment = 1
-
-[node name="downscroll" type="CheckBox" parent="UI/pages/gameplay/VBoxContainer/bools"]
-layout_mode = 2
-text = "downscroll"
-script = ExtResource("3_rh5dl")
-
-[node name="centernotefield" type="CheckBox" parent="UI/pages/gameplay/VBoxContainer/bools"]
-layout_mode = 2
-text = "center notefield"
-script = ExtResource("3_rh5dl")
-linked_field = "center_notefield"
-
-[node name="opponentplay" type="CheckBox" parent="UI/pages/gameplay/VBoxContainer/bools"]
-layout_mode = 2
-text = "opponent play"
-script = ExtResource("3_rh5dl")
-linked_field = "opponent_play"
-
-[node name="autoplay" type="CheckBox" parent="UI/pages/gameplay/VBoxContainer/bools"]
-layout_mode = 2
-text = "autoplay
-"
-script = ExtResource("3_rh5dl")
-linked_field = "autoplay"
-
-[node name="vsync" type="CheckBox" parent="UI/pages/gameplay/VBoxContainer/bools"]
-layout_mode = 2
-text = "vsync"
-script = ExtResource("3_rh5dl")
-linked_field = "vsync"
-
-[node name="normalize_pitch" type="CheckBox" parent="UI/pages/gameplay/VBoxContainer/bools"]
-layout_mode = 2
-tooltip_text = "repitches samples of audio to make them sound normal when changeing the playback rate
-this will rise the cpu use making performance worse!!"
-text = "normalize playback rate"
-script = ExtResource("3_rh5dl")
-linked_field = "normalize_pitch"
-
-[node name="HSeparator2" type="HSeparator" parent="UI/pages/gameplay/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="keybinds button" type="Button" parent="UI/pages/gameplay/VBoxContainer"]
-layout_mode = 2
-text = "change keybinds"
-
-[connection signal="pressed" from="UI/pages/gameplay/VBoxContainer/keybinds button" to="." method="_on_keybinds_button_pressed"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="OptionTemplate"]
+position = Vector2(920, 32)
+scale = Vector2(0.6, 0.6)
+sprite_frames = ExtResource("9_icgry")
+animation = &"unselected"

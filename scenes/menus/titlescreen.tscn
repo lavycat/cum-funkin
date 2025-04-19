@@ -67,12 +67,3 @@ offset_bottom = 651.0
 text = "PRESS {UI_ENETER}"
 label_settings = SubResource("LabelSettings_dsleg")
 horizontal_alignment = 1
-
-[node name="CheckBox" type="CheckBox" parent="."]
-offset_left = 357.0
-offset_top = 619.0
-offset_right = 447.0
-offset_bottom = 650.0
-text = "shaders"
-
-[connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]

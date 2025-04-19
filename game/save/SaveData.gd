@@ -13,6 +13,10 @@ class_name SaveDat extends Resource
 @export var downscroll:bool = true
 @export var center_notefield:bool = false
 @export var autoplay:bool = false
+@export var shaders:bool = true:
+	set(v):
+		shaders = v
+		Game.shaders = v
 @export var scroll_speed:float = 1.0
 @export var note_offset:float = 0.0
 @export var opponent_play:bool = false

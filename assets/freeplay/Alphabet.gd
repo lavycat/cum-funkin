@@ -31,7 +31,7 @@ func get_letter_anim(letter:String):
 	anim_name += " instance 1"
 	return anim_name
 func generate_sprites(text_changed:bool = true):
-	for i in letters:
+	for i in get_children():
 		i.queue_free()
 	letters.clear()
 	var DICK:int = 0
