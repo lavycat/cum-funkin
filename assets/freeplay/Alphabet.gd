@@ -55,13 +55,9 @@ func generate_sprites(text_changed:bool = true):
 		letter.sprite_frames = frames
 		var letter_offset:int = 0
 		print(i)
-		if i.to_lower() == "a":
-			letter_offset = -4
-		if i.to_lower() == "y":
-			letter_offset = -11
 			
 		size.y = max(size.y,frames.get_frame_texture(letter.animation,0).get_height())
-		_width += frames.get_frame_texture(anim_name,0).get_width()
+		_width += 54
 		letter.offset.x = letter_offset
 		letter.position.x += _width
 		letter.position.y += 56 * ROWS
