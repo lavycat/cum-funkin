@@ -12,7 +12,6 @@ func _ready() -> void:
 	name = "events"
 	Conductor.step_hit.connect(step)
 	print("song script ready")
-	print(game)
 	pass # Replace with function body.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

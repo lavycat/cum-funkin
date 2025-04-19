@@ -128,7 +128,8 @@ func note_hit(note:Note,cheat:bool = false):
 		match rating.rating.to_lower():
 			"sick","marvelous":
 				stats.accuracy_points += 1.0
-				notefield.im_splashing_it(note.column)
+				if does_input:
+					notefield.im_splashing_it(note.column)
 			"good":
 				stats.accuracy_points += 0.67
 			"bad":

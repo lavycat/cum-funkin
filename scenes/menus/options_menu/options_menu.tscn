@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://r261croh276o" path="res://scenes/menus/options_menu/options_menu.gd" id="1_vd6yg"]
 [ext_resource type="Script" uid="uid://fd6880q4nvmh" path="res://scenes/menus/options_menu/data/option_page.gd" id="2_35m4m"]
 [ext_resource type="Script" uid="uid://bs2diebeu37fr" path="res://scenes/menus/options_menu/data/page_options/page_option.gd" id="3_x0syw"]
-[ext_resource type="Script" uid="uid://cvxp7ykniat5o" path="res://scenes/menus/options_menu/data/page_options/options_range.gd" id="4_x0syw"]
+[ext_resource type="Script" path="res://scenes/menus/options_menu/data/page_options/options_range.gd" id="4_x0syw"]
 [ext_resource type="Script" uid="uid://dvqrbbvhpnj5k" path="res://assets/freeplay/Alphabet.gd" id="6_0at57"]
 [ext_resource type="SpriteFrames" uid="uid://bk5hbtun5otpq" path="res://assets/options/checkboxThingie.res" id="9_icgry"]
 
@@ -29,7 +29,7 @@ metadata/_custom_type_script = "uid://bs2diebeu37fr"
 script = ExtResource("3_x0syw")
 option_type = 0
 option_name = &"center_notefield"
-option_display_name = &"Centered Notefield"
+option_display_name = &"Middle Scroll"
 option_choices = Array[String]([])
 p = null
 metadata/_custom_type_script = "uid://bs2diebeu37fr"
@@ -51,7 +51,7 @@ metadata/_custom_type_script = "uid://cvxp7ykniat5o"
 script = ExtResource("3_x0syw")
 option_type = 1
 option_name = &"fps"
-option_display_name = &"Framerate Limit"
+option_display_name = &"Framerate"
 option_number_range = SubResource("Resource_6n8at")
 option_choices = Array[String]([])
 p = null
@@ -113,7 +113,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = 425.0
 offset_top = 35.0
-offset_right = 1026.0
+offset_right = 1101.0
 offset_bottom = 103.0
 script = ExtResource("6_0at57")
 text = "Page Template"
@@ -132,7 +132,7 @@ offset_bottom = -12.0
 layout_mode = 3
 anchors_preset = 0
 offset_left = 256.0
-offset_right = 713.0
+offset_right = 1040.0
 offset_bottom = 68.0
 script = ExtResource("6_0at57")
 text = "Option Template"
@@ -142,7 +142,7 @@ metadata/_custom_type_script = "uid://dvqrbbvhpnj5k"
 layout_mode = 3
 anchors_preset = 0
 offset_left = 768.0
-offset_right = 1091.0
+offset_right = 1282.0
 offset_bottom = 68.0
 script = ExtResource("6_0at57")
 text = "Text Value"

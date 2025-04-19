@@ -11,7 +11,7 @@ extends BaseHud
 @onready var score_txt: Label = $score_txt
 var rating_fc:String = "N/A"
 var rating_name:String = ""
-var rating_group:CanvasLayer = CanvasLayer.new()
+var rating_group:Node2D = Node2D.new()
 func reload_icon_textures():
 	icon_p2.texture = Game.instance.player_list[0].chars[0].icon
 	icon_p1.texture = Game.instance.player_list[1].chars[0].icon
@@ -24,7 +24,7 @@ func _ready() -> void:
 	timebar.value = 0
 	timebar.modulate.a = 0
 	time_txt.modulate.a = 0
-	Game.instance.add_child(rating_group)
+	add_child(rating_group)
 	healthbar_bg.position.x = size.x / 2 - healthbar.size.x/2
 	print(Game.instance.player_field)
 	if SaveMan.save.downscroll:

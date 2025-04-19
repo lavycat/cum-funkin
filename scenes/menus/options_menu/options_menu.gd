@@ -35,12 +35,18 @@ func _ready() -> void:
 			optionObj.get_child(0).text = option.option_display_name
 			if (option.option_type != 0):
 				optionObj.get_child(1).text = str(SaveMan.get_data(option.option_name))
+				print(optionObj.get_child(1).position.x)
+				optionObj.get_child(1).position.x = 300
+				print("ASDHN")
+				
 				optionObj.get_child(2).visible = false
+				
 			else:
 				optionObj.get_child(2).play('selected' if SaveMan.get_data(option.option_name) != false else 'unselected')
+				optionObj.get_child(2).position.x = optionObj.get_child(0).size.x + 157*1.75
 				optionObj.get_child(1).visible = false
 			var alpha:Alphabet = optionObj.get_child(1)
-			alpha.position.x = (1280 - alpha.size.x) * 0.75
+			alpha.position.x = optionObj.get_child(0).size.x + 157*1.5
 			textContainer.add_child(optionObj)
 			optionObj.get_child(0).position.x = 1280 * 0.15
 			selectables.append({'object': optionObj,'data': option})	

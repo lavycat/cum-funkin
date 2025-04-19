@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/silly_lyrics.png-d9c5f48856d6388ce8d3b5777e08
 
 [params]
 
-compress/mode=0
+compress/mode=4
 compress/high_quality=true
 compress/lossy_quality=0.0
 compress/hdr_compression=1

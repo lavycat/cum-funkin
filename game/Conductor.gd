@@ -68,6 +68,8 @@ func _process(delta: float) -> void:
 				play_head = time
 	update(delta)
 func update(delta:float):
+		
+
 	if audio:
 		if audio.playing:
 			time = audio.get_playback_position()

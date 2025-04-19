@@ -54,7 +54,6 @@ func generate_sprites(text_changed:bool = true):
 			
 		letter.sprite_frames = frames
 		var letter_offset:int = 0
-		print(i)
 			
 		size.y = max(size.y,frames.get_frame_texture(letter.animation,0).get_height())
 		_width += 54

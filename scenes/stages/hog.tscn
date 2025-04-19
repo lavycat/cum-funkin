@@ -119,9 +119,9 @@ texture = ExtResource("9_vh1ug")
 centered = false
 
 [node name="shaders" type="CanvasLayer" parent="."]
-layer = 4
 
 [node name="glitch" type="ColorRect" parent="shaders"]
+z_as_relative = false
 material = SubResource("ShaderMaterial_eltjq")
 anchors_preset = 15
 anchor_right = 1.0
