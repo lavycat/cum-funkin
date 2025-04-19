@@ -64,7 +64,7 @@ func change_option_value_directional(mult:int = 1):
 			cur_selected_object.get_child(2).play('selected' if SaveMan.get_data(cur_selected_data.option_name) != false else 'unselected')
 		1:
 			var original_data = SaveMan.get_data(cur_selected_data.option_name)
-			SaveMan.set_data(cur_selected_data.option_name, wrap(original_data + (cur_selected_data.option_number_range.step*mult), cur_selected_data.option_number_range.minimum, cur_selected_data.option_number_range.maximum))
+			SaveMan.set_data(cur_selected_data.option_name, wrap(original_data + (cur_selected_data.option_number_range.step*mult), cur_selected_data.option_number_range.minimum, cur_selected_data.option_number_range.maximum +1))
 			cur_selected_object.get_child(1).text = str(SaveMan.get_data(cur_selected_data.option_name))
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var sneako_timer:float = 0 # incel timer
