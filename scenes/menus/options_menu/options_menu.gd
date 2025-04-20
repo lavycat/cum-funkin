@@ -4,7 +4,9 @@ extends Node2D
 @onready var option_template = $OptionTemplate
 @onready var psych_ui: CanvasLayer = $PsychUI
 @onready var textContainer: = $PsychUI/VBoxContainer
+signal exit
 var can_exit:bool = true
+var is_pause:bool = false
 var keybinds_menu:Control = preload("res://scenes/menus/options_menu/keybinds_menu.tscn").instantiate()
 # Called when the node enters the scene tree for the first time.
 var selectables:Array[Dictionary]
@@ -101,7 +103,11 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_cancel"):
 			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 			SaveMan.save_data()
-			SceneManager.switch_scene("res://scenes/menus/main_menu.tscn")
+			if is_pause:
+				exit.emit()
+				hide()
+			else:
+				SceneManager.switch_scene("res://scenes/menus/main_menu.tscn")
 	else:
 		if Input.is_action_just_pressed("ui_cancel"):
 			await create_tween().tween_property(keybinds_menu,"modulate:a",0.0,0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).finished

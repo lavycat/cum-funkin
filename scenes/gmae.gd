@@ -201,6 +201,7 @@ func end_song():
 	meta = null
 	var stats = hud.stats
 	HighScore.add_score(song_name,song_diff,[stats.score,stats.combo_breaks,stats.accuracy])
+	Conductor.reset()
 	match play_mode:
 		PlayMode.FREEPLAY:
 			SceneManager.switch_scene("res://scenes/menus/main_menu.tscn")

@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1tbvav234cyf"]
+[gd_scene load_steps=2 format=3 uid="uid://b1tbvav234cyf"]
 
 [ext_resource type="Script" uid="uid://cqke7j3dbh7ev" path="res://scenes/menus/pause_menu.gd" id="1_fwndu"]
-[ext_resource type="Script" uid="uid://dvqrbbvhpnj5k" path="res://assets/freeplay/Alphabet.gd" id="2_7unhi"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_fwndu")
+items = Array[String](["resume", "restart", "options", "exit"])
 
 [node name="bg" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -15,35 +15,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="vbox" type="VBoxContainer" parent="."]
+[node name="THE BOX" type="VBoxContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 90.0
-offset_top = 320.0
+offset_top = 312.0
 offset_right = 90.0
-offset_bottom = 320.0
+offset_bottom = 312.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 156
 
-[node name="Alphabet" type="Control" parent="vbox"]
-layout_mode = 2
-script = ExtResource("2_7unhi")
-text = "resume"
-bold = true
-metadata/_custom_type_script = "uid://dvqrbbvhpnj5k"
-
-[node name="Alphabet2" type="Control" parent="vbox"]
-layout_mode = 2
-script = ExtResource("2_7unhi")
-text = "restart"
-bold = true
-metadata/_custom_type_script = "uid://dvqrbbvhpnj5k"
-
-[node name="Alphabet3" type="Control" parent="vbox"]
-layout_mode = 2
-script = ExtResource("2_7unhi")
-text = "exit"
-bold = true
-metadata/_custom_type_script = "uid://dvqrbbvhpnj5k"
+[node name="options_layer" type="CanvasLayer" parent="."]
+layer = 3
