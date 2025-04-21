@@ -121,7 +121,7 @@ centered = false
 [node name="shaders" type="CanvasLayer" parent="."]
 
 [node name="glitch" type="ColorRect" parent="shaders"]
-z_as_relative = false
+z_index = -4096
 material = SubResource("ShaderMaterial_eltjq")
 anchors_preset = 15
 anchor_right = 1.0

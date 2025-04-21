@@ -16,6 +16,7 @@ var take_input:bool = true:
 		take_input = v
 		print("INPUT TAKE CHANGED")
 func _ready() -> void:
+	options_layer.layer = 128
 	game = Game.instance
 	bg.modulate = 0
 	create_tween().tween_property(bg,"modulate:a",0.6,0.4).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUART)
@@ -32,6 +33,13 @@ func change_item(p:int = 0):
 	if p != 0:
 		AudioManager.play_sfx(AudioManager.MENU_SCROLL)
 	cur_selected = wrap(cur_selected + p,0,max_items)
+	var cock = the_box.get_children()
+	cock.remove_at(cur_selected)
+	var tities = the_box.get_child(cur_selected)
+	for i in cock:
+		i.modulate.a = 0.6
+	tities.modulate.a = 1.0
+	the_box.get_child(cur_selected)
 func _input(event: InputEvent) -> void:
 	if !take_input:
 		return
@@ -55,7 +63,7 @@ func _input(event: InputEvent) -> void:
 			"options":
 				set_process_input(false)
 				var root = get_tree().root
-				options_layer.reparent(root,true)
+				options_layer.reparent(get_node("/root/Fps"),true)
 				
 				game.hud.visible = false
 				options_menu.is_pause = true

@@ -1,7 +1,14 @@
 class_name Game extends Node2D
 static var meta:ChartMeta
 static var chart:Chart = null
-static var play_mode = 0
+static var play_mode:PlayMode = 0
+static var campaign_song:int = 0
+static var campaign_songs:PackedStringArray = []
+
+static var level_score:int
+static var level_cbs:int
+static var level_acc:float = 0.0
+static var level_name:String = ""
 static var instance:Game = null
 @onready var ui_layer = $"UI Layer"
 @onready var tracks = $tracks
@@ -22,7 +29,7 @@ static var shaders:bool = true
 var song_started:bool = false
 enum PlayMode {
 	FREEPLAY = 0,
-	STORY = 1
+	CAMPAIGN = 1
 }
 func beat_hit(beat:int):
 	if beat %4 == 0 and !died and beat != 0:
@@ -121,7 +128,7 @@ func _ready():
 		for i in player_list:
 			i.notefield.visible = false
 		p.notefield.visible = true
-		p.notefield.position.x = 640/2 - (160*0.7)*2.0
+		p.notefield.position.x = 640 - (160*0.7)*2.0
 			
 	
 
@@ -204,9 +211,24 @@ func end_song():
 	Conductor.reset()
 	match play_mode:
 		PlayMode.FREEPLAY:
-			SceneManager.switch_scene("res://scenes/menus/main_menu.tscn")
-		PlayMode.STORY:
-			SceneManager.switch_scene("res://scenes/menus/main_menu.tscn")
+			SceneManager.switch_scene("uid://q6e1kix7o3h5")
+		PlayMode.CAMPAIGN:
+			if campaign_song != campaign_songs.size()-1:
+				level_acc += hud.stats.accuracy
+				level_score += hud.stats.score
+				level_cbs += hud.stats.combo_breaks
+				campaign_song += 1
+				song_name = campaign_songs[campaign_song]
+				get_tree().reload_current_scene()
+			else:
+				HighScore.add_level_score(level_name,song_diff,[level_score,level_cbs,level_acc/campaign_song + 1])
+				print(HighScore.level_scores.get(level_name))
+				campaign_song = 0
+				campaign_songs = []
+				level_acc = 0
+				level_cbs = 0
+				level_score = 0
+				SceneManager.switch_scene("res://scenes/menus/main_menu.tscn")
 			
 			
 var paused:bool = false

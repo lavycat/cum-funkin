@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 		if time == last_time:
 			time += delta
 		else:
-			time = audio.get_playback_position()
+			time = audio.get_playback_position() + AudioServer.get_time_since_last_mix()
 		while time < last_time:
 			time = last_time
 		if !freeze_playhead:

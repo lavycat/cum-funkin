@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dv4w8fl053lxq"]
+[gd_scene load_steps=12 format=3 uid="uid://dv4w8fl053lxq"]
 
 [ext_resource type="Script" uid="uid://g4o6nv80l3xq" path="res://scenes/menus/main_menu.gd" id="1_4jyvr"]
 [ext_resource type="Texture2D" uid="uid://bbx6d4euqloth" path="res://assets/main_menu/menuBG.png" id="1_l8mhe"]
@@ -6,6 +6,7 @@
 [ext_resource type="SpriteFrames" uid="uid://c800jl444pbyc" path="res://assets/main_menu/items/freeplay_option.res" id="3_k62hw"]
 [ext_resource type="AudioStream" uid="uid://du36ctmei7qj5" path="res://assets/sounds/confirmMenu.ogg" id="3_ondd5"]
 [ext_resource type="Texture2D" uid="uid://b1fbwmd82v8tb" path="res://assets/main_menu/menuDesat.png" id="5_jjco7"]
+[ext_resource type="SpriteFrames" uid="uid://bskrkvxffxhfi" path="res://assets/main_menu/items/story_option.res" id="6_1hnlc"]
 [ext_resource type="SpriteFrames" uid="uid://0ifeq6vw301" path="res://assets/main_menu/items/options_option.res" id="6_88nty"]
 
 [sub_resource type="Animation" id="Animation_m1er7"]
@@ -82,6 +83,12 @@ centered = false
 scroll_scale = Vector2(0, 0)
 follow_viewport = false
 ignore_camera_scroll = true
+
+[node name="storymode" type="AnimatedSprite2D" parent="items"]
+position = Vector2(640, 200)
+sprite_frames = ExtResource("6_1hnlc")
+animation = &"basic"
+autoplay = "basic"
 
 [node name="freeplay" type="AnimatedSprite2D" parent="items"]
 position = Vector2(640, 360)

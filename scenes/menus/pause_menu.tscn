@@ -4,6 +4,7 @@
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
+layer = 3
 script = ExtResource("1_fwndu")
 items = Array[String](["resume", "restart", "options", "exit"])
 
@@ -29,3 +30,5 @@ theme_override_constants/separation = 156
 
 [node name="options_layer" type="CanvasLayer" parent="."]
 layer = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

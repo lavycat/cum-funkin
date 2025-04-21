@@ -131,9 +131,9 @@ func note_hit(note:Note,cheat:bool = false):
 				if does_input:
 					notefield.im_splashing_it(note.column)
 			"good":
-				stats.accuracy_points += 0.67
+				stats.accuracy_points += 0.66
 			"bad":
-				stats.accuracy_points += 0.34
+				stats.accuracy_points += 0.33
 			_:
 				pass
 		stats.accuracy = stats.accuracy_points / (stats.notes_hit + stats.combo_breaks)

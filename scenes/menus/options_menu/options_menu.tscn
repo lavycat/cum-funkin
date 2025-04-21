@@ -86,7 +86,7 @@ script = ExtResource("1_vd6yg")
 options = Array[ExtResource("2_35m4m")]([SubResource("Resource_icgry"), SubResource("Resource_t8xl3")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 0
+layer = 128
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 modulate = Color(0.969014, 0.505224, 0.649103, 1)
@@ -94,6 +94,7 @@ texture = ExtResource("1_ts4b0")
 centered = false
 
 [node name="PsychUI" type="CanvasLayer" parent="."]
+layer = 128
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PsychUI"]
 offset_right = 1280.0

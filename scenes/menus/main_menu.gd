@@ -14,7 +14,7 @@ extends Node2D
 var cur_selected:int = 0:
 	set(v):
 		cur_selected = wrap(v,0,items.get_child_count())
-var options:Array[String] = ["freeplay","options"]
+var options:Array[String] = ["storymode","freeplay","options"]
 var selecting_something:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -59,11 +59,15 @@ func select_item():
 	
 	await get_tree().create_timer(1.0,false).timeout
 	match options[cur_selected]:
+		"storymode":
+			SceneManager.switch_scene("uid://4lpp8setrtow")
 		"freeplay":
-			SceneManager.switch_scene("res://scenes/menus/freeplay/freeplay.tscn")
+			SceneManager.switch_scene("uid://q6e1kix7o3h5")
 		"options":
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			SceneManager.switch_scene("res://scenes/menus/options_menu/options_menu.tscn")
+			SceneManager.switch_scene("uid://b8235xq70y2ii")
+		_:
+			get_tree().reload_current_scene()
 			
 func change_item(c:int = 0):
 	cur_selected += c

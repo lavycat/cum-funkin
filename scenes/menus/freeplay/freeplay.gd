@@ -117,6 +117,7 @@ func select_song():
 	if song_loading : return
 	song_loading = true
 	var song_name = freeplay_list[cur_item].song_name
+	Game.play_mode = Game.PlayMode.FREEPLAY
 	load_song(song_name)
 	pass
 	

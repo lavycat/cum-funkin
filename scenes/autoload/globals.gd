@@ -14,6 +14,7 @@ func hide_overlay():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	RenderingServer.set_default_clear_color(Color.BLACK)
 	overlay_pos = -overlay.size
 	show_overlay()
 	pass # Replace with function body.
