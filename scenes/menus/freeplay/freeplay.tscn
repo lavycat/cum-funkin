@@ -34,7 +34,7 @@ icon_frames = 5
 bg_color = Color(0.486275, 0.533333, 0.819608, 1)
 song_name = "silly-billy"
 display_name = "silly billy"
-difficultys = Array[String](["normal"])
+difficultys = Array[String](["hard"])
 
 [sub_resource type="LabelSettings" id="LabelSettings_j4vrh"]
 font_size = 32

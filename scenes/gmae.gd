@@ -203,6 +203,7 @@ func _process(delta):
 		Conductor.audio.play()
 		hud.call("on_song_start")
 func end_song():
+	await RenderingServer.frame_post_draw
 	## unload cus erm sigma
 	chart = null
 	meta = null

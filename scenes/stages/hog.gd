@@ -4,7 +4,7 @@ extends Stage
 @onready var mount_hog: Sprite2D = $"Parallax2D/mount hog"
 @onready var floor_spr: Sprite2D = $Sprite2D
 @onready var rocks: Sprite2D = $Parallax2D3/Rocks
-@onready var bg: Sprite2D = $Parallax2D/bg
+@onready var bg:TextureRect = $Parallax2D/bg
 @onready var water: AnimatedSprite2D = $water
 @onready var loops: AnimatedSprite2D = $Parallax2D2/loops
 var do_glitch:bool = false

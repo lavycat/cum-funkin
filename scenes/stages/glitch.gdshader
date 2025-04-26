@@ -91,7 +91,7 @@ vec3 distort(sampler2D sampler, vec2 uv, float edgeSize)
 
 void fragment()
 {
-	size = 1.0/SCREEN_PIXEL_SIZE;
+	size = 1.0 / SCREEN_PIXEL_SIZE;
 	vec2 uv = SCREEN_UV;
     wow = clamp(mod(noise(TIME + uv.y), 1.0), 0.0, 1.0) * 2.0 - 1.0;
     vec3 finalColor;

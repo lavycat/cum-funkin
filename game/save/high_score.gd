@@ -15,6 +15,8 @@ func add_score(song:String,diff:String,stats:Array):
 func add_level_score(level:String,diff:String,stats:Array):
 	level_scores.set("%s/%s"%[level,diff],stats)
 	flush_scores()
+func get_level_score(level:String,diff:String):
+	return level_scores.get("%s/%s"%[level,diff],[0,0,0])
 func load_scores() -> void:
 	if FileAccess.file_exists(score_path) and FileAccess.file_exists(level_score_path):
 		scores = bytes_to_var(FileAccess.get_file_as_bytes(score_path))
